@@ -18,7 +18,7 @@
 #define NUMERO_DE_TAREFAS	3
 
 /* número de prioridades/tarefas */
-#define PRIORIDADE_MAXIMA   4
+#define PRIORIDADE_MAXIMA   3
 
 /* frequencia de clock da CPU */
 #define cfg_CPU_CLOCK_HZ 	48000000
