@@ -35,6 +35,7 @@
 void tarefa_1(void);
 void tarefa_2(void);
 void tarefa_3(void);
+void tarefa__3(void);
 void tarefa_4(void);
 void tarefa_5(void);
 void tarefa_6(void);
@@ -81,6 +82,8 @@ int main(void)
 	
 	CriaTarefa(tarefa_2, "Tarefa 2", PILHA_TAREFA_2, TAM_PILHA_2, 2);
 	
+	CriaTarefa(tarefa_3, "Tarefa 3", PILHA_TAREFA_3, TAM_PILHA_3, 3);
+	
 	/* Cria tarefa ociosa do sistema */
 	CriaTarefa(tarefa_ociosa,"Tarefa ociosa", PILHA_TAREFA_OCIOSA, TAM_PILHA_OCIOSA, 0);
 	
@@ -115,13 +118,24 @@ void tarefa_2(void)
 	for(;;)
 	{
 		b++;
-		TarefaSuspende(2);	
+		TarefaSuspende(2);
 		port_pin_set_output_level(LED_0_PIN, !LED_0_ACTIVE); 	/* Turn LED off. */
+		TarefaContinua(3);
+	}
+}
+
+void tarefa_3(void)
+{
+	volatile uint16_t c = 0;
+	for(;;)
+	{
+		c++;
+		TarefaSuspende(3);
 	}
 }
 
 /* Tarefas de exemplo que usam funcoes para suspender as tarefas por algum tempo (atraso/delay) */
-void tarefa_3(void)
+void tarefa__3(void)
 {
 	volatile uint16_t a = 0;
 	for(;;)
